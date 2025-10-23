@@ -1,16 +1,55 @@
-# React + Vite
+# Subscription Manager
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive frontend application built with **React** and **Tailwind CSS** featuring a striking **Glassmorphism** design. It provides a comprehensive dashboard to track, manage, and calculate your recurring service expenses.
 
-Currently, two official plugins are available:
+## ✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* **Financial Overview:** Calculates and displays total **Monthly** and **Yearly** spending by normalizing all billing cycles (Monthly, Yearly, Weekly).
+* **Full CRUD Functionality:** Seamlessly **Create, Read, Update, and Delete** subscriptions via a RESTful API.
+* **Intuitive UI:** Uses a card-based layout for clear display of subscriptions and a centralized modal for management.
+* **Dynamic Data Handling:** Built with React Hooks (`useState`, `useEffect`) for state management and API interactions.
+* **Error & Loading States:** Clear visual feedback for network operations and errors.
 
-## React Compiler
+## 🛠️ Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+| Component | Technology | Description |
+| :--- | :--- | :--- |
+| **Frontend** | React, Tailwind CSS | UI and state management. |
+| **Icons** | Lucide Icons | Clean, modern icon set. |
+| **Backend** | Spring Boot, MySQL | Robust RESTful API and persistence. |
+| **Styling** | Custom CSS | Implements the Glassmorphism theme. |
 
-## Expanding the ESLint configuration
+***
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 Getting Started
+
+### Prerequisites
+
+You will need the following installed:
+
+* **Node.js** (LTS version) and **npm** or **yarn**
+* **Java** (JDK 17+) and **Maven** or **Gradle** (for the backend)
+* **MySQL Server**
+***
+
+## ⚙️ API Configuration
+
+The React component targets the following endpoints, which must be served by your Spring Boot application:
+
+| HTTP Method | Frontend Function | Endpoint | Purpose |
+| :--- | :--- | :--- | :--- |
+| `GET` | `fetchSubscriptions` | `/api/subscriptions` | Retrieve all subscriptions. |
+| `POST` | `createSubscription` | `/api/subscriptions` | Add a new subscription. |
+| `PUT` | `updateSubscription` | `/api/subscriptions/{id}` | Modify an existing subscription. |
+| `DELETE` | `deleteSubscription` | `/api/subscriptions/{id}` | Remove a subscription. |
+
+### Note on Currency
+
+The application currently displays amounts using the **Indian Rupee (₹)** symbol but is designed to handle generic numerical amounts (`Double` or `BigDecimal` in your Spring Boot/MySQL model). You can easily change the currency symbol within the `SubscriptionTracker.jsx` component.
+
+## 👨‍💻 Developer
+
+Developed by **Aakash Chauhan**  
+
+The backend for this project is available in the **Spring Boot + MySQL** repository:  
+👉 [View Backend Repo](https://github.com/Aakashch-code/Subscription-Backend)
